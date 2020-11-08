@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         val yelpService = retrofit.create(YelpService::class.java)
         yelpService.searchRestaurants( "Bearer $YELP_API_KEY","Avocado Toast", "New York")
-            .enqueue(object : Callback<Any> {
-                override fun onFailure(call: Call<Any>, t: Throwable) {
+            .enqueue(object : Callback<YelpSearchResult> {
+                override fun onFailure(call: Call<YelpSearchResult>, t: Throwable) {
                     Log.i(TAG, "failure $t")
                 }
 
-                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                override fun onResponse(call: Call<YelpSearchResult>, response: Response<YelpSearchResult>) {
                     Log.i(TAG, "onResponse $response")
                 }
 
