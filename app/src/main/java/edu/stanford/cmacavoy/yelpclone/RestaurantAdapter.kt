@@ -32,7 +32,7 @@ class RestaurantAdapter(val context: Context, val restaurants: List<YelpRestaura
             )).into(itemView.imageView)
 
             itemView.setOnClickListener{
-                val address = "${yelpRestaurant.location.address}, ${yelpRestaurant.location.city}, ${yelpRestaurant.location.zipcode}"
+                val address = "${yelpRestaurant.name}, ${yelpRestaurant.location.address}, ${yelpRestaurant.location.city}, ${yelpRestaurant.location.zipcode}"
                 Log.i("Adapter", "Address is: $address")
                 val gmmIntentUri =
                     Uri.parse("geo:0,0?q=${address}")
